@@ -31,7 +31,7 @@
                     for(let game of theGames.game)
                     {
                         var gameElement = document.createElement('p');
-                        gameElement.innerHTML = "Name: " + game.playerName + " | Wins: " + game.playerWins + " | Games Played: " + game.gamesPlayed + " ";
+                        gameElement.innerHTML = i + 1 + ". " + "Name: " + game.playerName + " | Wins: " + game.playerWins + " | Games Played: " + game.gamesPlayed + " ";
                         document.getElementById("container").appendChild(gameElement);
                         i++;
                         if(i >= 10)

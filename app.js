@@ -45,7 +45,7 @@ app.post("/saveGame", function(req, res){
 })
 
 app.get("/getPlayers", function(req, res){
-    Game.find({}).sort({"game":1}).then(function(game){ 
+    Game.find({}).then(function(game){ 
         res.json({game});
     })
 })

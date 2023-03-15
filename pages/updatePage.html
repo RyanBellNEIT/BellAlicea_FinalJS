@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Page</title>
+</head>
+<body>
+    <h1>Update Page</h1>
+
+    <form action="/updateGame" method="POST">
+        <label>Entry ID</label>
+        <br>
+        <input type="text" name="id" id="id" readonly>
+        <br>
+        <label for="name" id="nameLabel">Name goes here</label>
+        <br>
+        <input type="text" name="playerName" id="name">
+        <br>
+        <label for="name" id="winsLabel">Wins goes here</label>
+        <br>
+        <input type="text" name="playerWins" id="wins">
+        <br>
+        <label for="name" id="playedLabel">Games Played goes here</label>
+        <br>
+        <input type="text" name="gamesPlayed" id="played">
+        <br>
+        <input type="submit" value="Update Name">
+    </form>
+
+    <script>
+        var queryData = window.location.search;
+        var entries = new URLSearchParams(queryData);
+        //console.log(queryData);
+        document.getElementById("name").value = entries.get("name");
+        document.getElementById("wins").value = entries.get("wins");
+        document.getElementById("played").value = entries.get("gamesPlayed");
+        document.getElementById("id").value = entries.get("id");
+    </script>
+</body>
+</html>

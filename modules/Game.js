@@ -7,11 +7,11 @@ var Schema = new Schema({
         require:true
     },
     playerWins:{
-        type:String,
+        type:Number,
         require:true
     },
     gamesPlayed:{
-        type:String,
+        type:Number,
         require:true
     }
 });

@@ -50,6 +50,12 @@ app.get("/getPlayers", function(req, res){
     })
 })
 
+app.get("/getPlayersTop10", function(req, res){ 
+    Game.find({}).sort({"playerWins":-1}).then(function(game){ 
+        res.json({game});
+    })
+})
+
 app.post("/deleteGame", function(req, res){
     console.log(`Player Entry Deleted ${req.body.game}`);
     Game.findByIdAndDelete(req.body.game).exec();

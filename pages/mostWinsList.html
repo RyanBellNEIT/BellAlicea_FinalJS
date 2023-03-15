@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game List</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Player List</h1>
+        <nav>
+            <a href="index.html">Go to entry page</a>
+        </nav>
+
+        <p>Top 10 Players Here</p>
+
+        <!--<form action="/searchGames" method="post">
+            <input type="text" name="game" id="game" placeholder="Search">
+            <input type="submit">
+        </form>
+        <br>-->
+
+        <script>
+            fetch("/getPlayersTop10").then(function(games){
+                games.json().then(function(theGames){
+                    console.log(theGames);
+                    //append our container html
+
+                    let i = 0
+                    for(let game of theGames.game)
+                    {
+                        var gameElement = document.createElement('p');
+                        gameElement.innerHTML = "Name: " + game.playerName + " | Wins: " + game.playerWins + " | Games Played: " + game.gamesPlayed + " ";
+                        document.getElementById("container").appendChild(gameElement);
+                        i++;
+                        if(i >= 10)
+                        {
+                            break;
+                        }
+                    }
+                })
+            })
+        </script>
+    </div>    
+</body>
+</html>
